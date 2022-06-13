@@ -68,7 +68,7 @@ class FinfoMimeTypeDetector implements MimeTypeDetector
     {
         $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
 
-        return $this->extensionMap->lookupMimeType($extension);
+        return $this->extensionMap->lookupMimeType($extension) ?? 'application/octet-stream';
     }
 
     public function detectMimeTypeFromFile(string $path): ?string
